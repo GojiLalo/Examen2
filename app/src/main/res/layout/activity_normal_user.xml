@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="@color/white"
+    tools:context=".NormalUserActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido Usuario Normal"
+        android:textSize="28sp"
+        android:textColor="@color/primary_color"
+        android:layout_marginBottom="32dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Correo: "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dirección: "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teléfono: "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rol: "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="@color/white"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textAllCaps="false"
+        android:elevation="4dp"/>
+
+</LinearLayout>

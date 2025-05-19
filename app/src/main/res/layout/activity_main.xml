@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/white">
+
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="24sp"
+        android:textColor="@color/primary_color"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"/>
+
+    <!-- Subtítulo -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_subtitle"
+        android:textSize="16sp"
+        android:textColor="@color/secondary_text"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Campo para correo electrónico -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="@color/secondary_text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo para contraseña -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/primary_color"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/secondary_text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Botón de Iniciar Sesión -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="false"
+        android:elevation="4dp"/>
+
+    <!-- Divisor -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botón de Registrarse -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:onClick="onRegisterClicked"/>
+
+</LinearLayout>
