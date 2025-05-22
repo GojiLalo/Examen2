@@ -23,6 +23,7 @@ class AdminActivity : AppCompatActivity() {
     private val userList = mutableListOf<User>()
 
     private lateinit var btnLogoutAdmin: Button
+    private lateinit var btnSendNotification: Button // Nuevo botón
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +35,14 @@ class AdminActivity : AppCompatActivity() {
             insets
         }
 
-        // Inicializar Firebase Auth y Firestore
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        // Asignar vistas
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers)
         btnLogoutAdmin = findViewById(R.id.btnLogoutAdmin)
+        btnSendNotification = findViewById(R.id.btnSendNotification) // Asignar el nuevo botón
 
-        // Configurar RecyclerView
         userAdapter = UserAdapter(userList) { user ->
-            // Manejar el clic en un usuario (abrir EditUserActivity)
             val intent = Intent(this, EditUserActivity::class.java).apply {
                 putExtra("user_uid", user.uid)
                 putExtra("user_email", user.email)
@@ -58,10 +56,8 @@ class AdminActivity : AppCompatActivity() {
         recyclerViewUsers.layoutManager = LinearLayoutManager(this)
         recyclerViewUsers.adapter = userAdapter
 
-        // Cargar los usuarios
         loadNormalUsers()
 
-        // Listener para el botón de cerrar sesión
         btnLogoutAdmin.setOnClickListener {
             auth.signOut()
             val intent = Intent(this, MainActivity::class.java)
@@ -70,18 +66,30 @@ class AdminActivity : AppCompatActivity() {
             finish()
             Toast.makeText(this, "Sesión de administrador cerrada.", Toast.LENGTH_SHORT).show()
         }
+
+        // Listener para el botón de enviar notificación
+        btnSendNotification.setOnClickListener {
+            val selectedUids = userAdapter.getSelectedUids()
+            if (selectedUids.isNotEmpty()) {
+                val intent = Intent(this, SendNotificationActivity::class.java).apply {
+                    putStringArrayListExtra("selected_user_uids", ArrayList(selectedUids))
+                }
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Por favor, selecciona al menos un usuario.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        // Recargar la lista de usuarios cada vez que se regresa a AdminActivity
         loadNormalUsers()
+        userAdapter.clearSelections() // Limpiar selecciones al regresar a la actividad
     }
 
     private fun loadNormalUsers() {
-        // Cargar solo usuarios con rol "normal"
         firestore.collection("users")
-            .whereEqualTo("role", "normal") // Filtra solo usuarios normales
+            .whereEqualTo("role", "normal")
             .get()
             .addOnSuccessListener { result ->
                 val users = mutableListOf<User>()

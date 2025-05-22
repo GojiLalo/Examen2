@@ -36,6 +36,17 @@
         android:layout_marginBottom="16dp"/>
 
     <Button
+        android:id="@+id/btnSendNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar Notificación a Seleccionados"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="false"
+        android:elevation="4dp"/>
+
+    <Button
         android:id="@+id/btnLogoutAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,5 +58,7 @@
         android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:elevation="4dp"/>
+
+
 
 </LinearLayout>

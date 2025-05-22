@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="@color/white"
+    tools:context=".SendNotificationActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Notificación"
+        android:textSize="28sp"
+        android:textColor="@color/primary_color"
+        android:layout_marginBottom="32dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvSelectedUsersCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuarios seleccionados: 0"
+        android:textSize="16sp"
+        android:textColor="@color/secondary_text"
+        android:layout_marginBottom="16dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:hintTextColor="@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNotificationMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escribe tu mensaje de notificación aquí..."
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:maxLines="5"
+            android:gravity="top"
+            android:textColor="@color/black"
+            android:textColorHint="@color/secondary_text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSendNotificationConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar Notificación"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:textAllCaps="false"
+        android:elevation="4dp"/>
+
+</LinearLayout>
