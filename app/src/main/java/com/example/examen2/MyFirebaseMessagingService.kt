@@ -41,7 +41,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     private fun sendNotification(title: String?, messageBody: String?) {
         val channelId = "default_channel_id" // ID del canal de notificación
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.mipmap.ic_launcher) // Reemplaza con el ícono de tu app
+            .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle(title ?: "Notificación")
             .setContentText(messageBody)
             .setAutoCancel(true)
@@ -54,7 +54,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val channel = NotificationChannel(
                 channelId,
                 "Canal por defecto", // Nombre visible del canal
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_HIGH
             ).apply {
                 description = "Canal para notificaciones generales de la aplicación"
             }

@@ -42,14 +42,14 @@ class AdminActivity : AppCompatActivity() {
         btnLogoutAdmin = findViewById(R.id.btnLogoutAdmin)
         btnSendNotification = findViewById(R.id.btnSendNotification) // Asignar el nuevo botón
 
-        userAdapter = UserAdapter(userList) { user ->
+        userAdapter = UserAdapter(userList) { User ->
             val intent = Intent(this, EditUserActivity::class.java).apply {
-                putExtra("user_uid", user.uid)
-                putExtra("user_email", user.email)
-                putExtra("user_name", user.name)
-                putExtra("user_address", user.address)
-                putExtra("user_phone", user.phone)
-                putExtra("user_role", user.role)
+                putExtra("user_uid", User.uid)
+                putExtra("user_email", User.email)
+                putExtra("user_name", User.name)
+                putExtra("user_address", User.address)
+                putExtra("user_phone", User.phone)
+                putExtra("user_role", User.role)
             }
             startActivity(intent)
         }
