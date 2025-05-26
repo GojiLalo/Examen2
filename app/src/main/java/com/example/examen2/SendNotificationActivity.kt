@@ -30,7 +30,7 @@ class SendNotificationActivity : AppCompatActivity() {
     private val client = OkHttpClient()
 
     // ¡IMPORTANTE! Reemplaza esto con la URL real de tu Firebase Cloud Function
-    private val CLOUD_FUNCTION_URL = "TU_URL_DE_FIREBASE_FUNCTION_AQUI" // Ejemplo: "https://us-central1-your-project-id.cloudfunctions.net/sendNotification"
+    private val CLOUD_FUNCTION_URL = "https://sendnotificationfb-dhogzipzua-uc.a.run.app" // Ejemplo: "https://us-central1-your-project-id.cloudfunctions.net/sendNotification"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,7 +85,7 @@ class SendNotificationActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
-                    Toast.makeText(this@SendNotificationActivity, "Error al enviar notificación: ${e.message}", Toast.LONG_SHORT).show()
+                    Toast.makeText(this@SendNotificationActivity, "Error al enviar notificación: ${e.message}", Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -96,7 +96,7 @@ class SendNotificationActivity : AppCompatActivity() {
                         Toast.makeText(this@SendNotificationActivity, "Notificación enviada exitosamente.", Toast.LENGTH_SHORT).show()
                         finish() // Cerrar esta actividad
                     } else {
-                        Toast.makeText(this@SendNotificationActivity, "Fallo al enviar notificación: ${response.code} - $responseBody", Toast.LONG_SHORT).show()
+                        Toast.makeText(this@SendNotificationActivity, "Fallo al enviar notificación: ${response.code} - $responseBody", Toast.LENGTH_LONG).show()
                     }
                 }
             }

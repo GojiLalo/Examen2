@@ -1,3 +1,5 @@
+package com.example.examen2
+
 data class User(
     val uid: String = "",
     val email: String = "",
